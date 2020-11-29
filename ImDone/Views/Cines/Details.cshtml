@@ -1,0 +1,82 @@
+﻿@model ImDone.Cine
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cine</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.provincia_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.provincia_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.municipio_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.municipio_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.calle_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.calle_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numero_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numero_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.localidad_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.localidad_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarifa.tipo_tarifa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarifa.tipo_tarifa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_cine }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

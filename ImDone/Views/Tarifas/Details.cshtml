@@ -1,0 +1,34 @@
+﻿@model ImDone.Tarifa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tarifa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_tarifa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_tarifa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_tarifa }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

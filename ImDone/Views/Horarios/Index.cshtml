@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ImDone.Horario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cine.nombre_cine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pelicula.titulo_pelicula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sala.nombre_sala)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tanda.periodo_tanda)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cine.nombre_cine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pelicula.titulo_pelicula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sala.nombre_sala)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tanda.periodo_tanda)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

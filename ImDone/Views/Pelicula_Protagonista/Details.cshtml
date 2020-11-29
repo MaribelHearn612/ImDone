@@ -1,0 +1,42 @@
+﻿@model ImDone.Pelicula_Protagonista
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pelicula_Protagonista</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Dummy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dummy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pelicula.titulo_pelicula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pelicula.titulo_pelicula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Protagonista.nombre_protagonista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Protagonista.nombre_protagonista)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_PP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

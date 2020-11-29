@@ -1,0 +1,42 @@
+﻿@model ImDone.Genero_Pelicula
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Genero_Pelicula</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Dummy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dummy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genero.nombre_genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genero.nombre_genero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pelicula.titulo_pelicula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pelicula.titulo_pelicula)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_GP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

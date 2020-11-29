@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ImDone.Pelicula>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.titulo_pelicula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_director)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clasificacion.nombre_clasificacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.titulo_pelicula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_director)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clasificacion.nombre_clasificacion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_pelicula }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_pelicula }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_pelicula })
+        </td>
+    </tr>
+}
+
+</table>

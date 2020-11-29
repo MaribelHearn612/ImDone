@@ -1,0 +1,56 @@
+﻿@model ImDone.Horario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Horario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cine.nombre_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cine.nombre_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pelicula.titulo_pelicula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pelicula.titulo_pelicula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sala.nombre_sala)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sala.nombre_sala)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tanda.periodo_tanda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tanda.periodo_tanda)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@model ImDone.Horario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Horario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cine.nombre_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cine.nombre_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pelicula.titulo_pelicula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pelicula.titulo_pelicula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sala.nombre_sala)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sala.nombre_sala)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tanda.periodo_tanda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tanda.periodo_tanda)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

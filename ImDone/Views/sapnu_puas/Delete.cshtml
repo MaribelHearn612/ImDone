@@ -1,0 +1,80 @@
+﻿@model ImDone.sapnu_puas
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>sapnu_puas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.localidad_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.localidad_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono_cine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono_cine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_genero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_protagonista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_protagonista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_tarifa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_tarifa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_clasificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_clasificacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

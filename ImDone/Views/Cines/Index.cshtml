@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ImDone.Cine>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_cine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.provincia_cine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.municipio_cine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.calle_cine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numero_cine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.localidad_cine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono_cine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarifa.tipo_tarifa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_cine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.provincia_cine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.municipio_cine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.calle_cine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numero_cine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.localidad_cine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono_cine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarifa.tipo_tarifa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_cine }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_cine }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_cine })
+        </td>
+    </tr>
+}
+
+</table>

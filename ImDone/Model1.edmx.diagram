@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc9f4e0d051a424db6f0445cc5b11c17" Name="Diagram1">
+        <EntityTypeShape EntityType="Cines5Model.Cine" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Clasificacion" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Genero" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Genero_Pelicula" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Horario" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Pelicula" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Pelicula_Protagonista" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Protagonista" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Sala" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Tanda" Width="1.5" PointX="6" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Tarifa" Width="1.5" PointX="3.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.sapnu_puas" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="Cines5Model.FK__Cine__id_tarifa__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Horario__id_cine__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Sala__id_cine__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Pelicula__id_cla__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Genero_Pe__id_ge__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Genero_Pe__id_pe__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Horario__id_peli__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Horario__id_sala__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Horario__id_tand__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Pelicula___id_pe__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Pelicula___id_pr__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
