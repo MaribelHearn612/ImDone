@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,9 +16,36 @@ namespace ImDone.Controllers
         private Cines5Entities db = new Cines5Entities();
 
         // GET: sapnu_puas
-        public ActionResult Index()
+        public ActionResult Index(string Criterio = null)
         {
-            return View(db.sapnu_puas.ToList());
+            return View(db.sapnu_puas.Where(p => Criterio == null || p.nombre_cine.StartsWith(Criterio) ||
+           p.titulo_pelicula.StartsWith(Criterio)).ToList());
+        }
+        public ActionResult exportaExcel()
+        {
+            string filename = "ExcelR.csv";
+            string filepath = @"C:\Users\Monika 2.0\Desktop" + filename;
+            StreamWriter sw = new StreamWriter(filepath);
+            sw.WriteLine("Servicio,Descripcion,Estado"); //Encabezado 
+            foreach (var i in db.sapnu_puas.ToList())
+            {
+                sw.WriteLine(i.localidad_cine.ToString() + "," + i.nombre_cine.ToString() + "," + i.nombre_sala + "," + i.titulo_pelicula + "," + i.Periodo);
+            }
+            sw.Close();
+
+
+            byte[] filedata = System.IO.File.ReadAllBytes(filepath);
+            string contentType = MimeMapping.GetMimeMapping(filepath);
+
+            var cd = new System.Net.Mime.ContentDisposition
+            {
+                FileName = filename,
+                Inline = false,
+            };
+
+            Response.AppendHeader("Content-Disposition", cd.ToString());
+
+            return File(filedata, contentType);
         }
 
         // GET: sapnu_puas/Details/5

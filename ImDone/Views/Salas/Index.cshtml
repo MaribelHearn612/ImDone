@@ -4,15 +4,28 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Salas</h2>
+
+<form method="get" style="float:right; position:absolute; left:1088px; top:150px">
+    <input type="text" id="Criterio" name="Criterio" />
+    <input type="submit" id="cmdBuscar" value="Buscar" />
+</form>
+
+<br />
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Exportar Excel", "exportaExcel", "Salas", null, new { @class = "btn btn-danger" })
+
+
+
+    @Html.ActionLink("Crear nuevo", "Create", "Salas", null, new { @class = "btn btn-primary" })
+
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_sala)
+            Sala
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Cine.nombre_cine)
@@ -20,20 +33,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre_sala)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cine.nombre_cine)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_sala }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_sala }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_sala })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                Sala)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cine.nombre_cine)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_sala }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_sala }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_sala })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -15,6 +15,7 @@ namespace ImDone.Controllers
         private Cines5Entities db = new Cines5Entities();
 
         // GET: Genero_Pelicula
+        [Authorize(Roles = "Administrador")]
         public ActionResult Index()
         {
             var genero_Pelicula = db.Genero_Pelicula.Include(g => g.Genero).Include(g => g.Pelicula);

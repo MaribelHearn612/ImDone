@@ -6,28 +6,42 @@
 
 <h2>Index</h2>
 
+<form method="get" style="float:right; position:absolute; left:1088px; top:150px">
+    <input type="text" id="Criterio" name="Criterio" />
+    <input type="submit" id="cmdBuscar" value="Buscar" />
+</form>
+
+<br />
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Exportar Excel", "exportaExcel", "Clasificacions", null, new { @class = "btn btn-danger" })
+
+
+
+    @Html.ActionLink("Crear nuevo", "Create", "Clasificacions", null, new { @class = "btn btn-primary" })
+
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_clasificacion)
+            Clasificación
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre_clasificacion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_clasificacion }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_clasificacion }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_clasificacion })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_clasificacion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_clasificacion }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_clasificacion }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_clasificacion })
+            </td>
+        </tr>
+    }
 
 </table>

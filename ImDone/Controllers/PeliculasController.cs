@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,13 +16,41 @@ namespace ImDone.Controllers
         private Cines5Entities db = new Cines5Entities();
 
         // GET: Peliculas
-        public ActionResult Index()
+        [Authorize(Roles = "Administrador")]
+        public ActionResult Index(string Criterio = null)
         {
-            var pelicula = db.Pelicula.Include(p => p.Clasificacion);
-            return View(pelicula.ToList());
+            return View(db.Pelicula.Where(p => Criterio == null || p.titulo_pelicula.StartsWith(Criterio) ||
+           p.nombre_director.StartsWith(Criterio)).ToList());
+        }
+        public ActionResult exportaExcel()
+        {
+            string filename = "ExcelR.csv";
+            string filepath = @"C:\Users\Monika 2.0\Desktop" + filename;
+            StreamWriter sw = new StreamWriter(filepath);
+            sw.WriteLine("Servicio,Descripcion,Estado"); //Encabezado 
+            foreach (var i in db.Pelicula.ToList())
+            {
+                sw.WriteLine(i.titulo_pelicula.ToString() + "," + i.nombre_director.ToString() + "," + i.Pelicula_Protagonista);
+            }
+            sw.Close();
+
+
+            byte[] filedata = System.IO.File.ReadAllBytes(filepath);
+            string contentType = MimeMapping.GetMimeMapping(filepath);
+
+            var cd = new System.Net.Mime.ContentDisposition
+            {
+                FileName = filename,
+                Inline = false,
+            };
+
+            Response.AppendHeader("Content-Disposition", cd.ToString());
+
+            return File(filedata, contentType);
         }
 
         // GET: Peliculas/Details/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +66,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Peliculas/Create
+        [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
             ViewBag.id_clasificacion = new SelectList(db.Clasificacion, "id_clasificacion", "nombre_clasificacion");
@@ -62,6 +92,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Peliculas/Edit/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +126,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Peliculas/Delete/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,12 +16,41 @@ namespace ImDone.Controllers
         private Cines5Entities db = new Cines5Entities();
 
         // GET: Tarifas
-        public ActionResult Index()
+        [Authorize(Roles = "Administrador")]
+        public ActionResult Index(string Criterio = null)
         {
-            return View(db.Tarifa.ToList());
+            return View(db.Tarifa.Where(p => Criterio == null || p.tipo_tarifa.StartsWith(Criterio) ||
+           p.precio.ToString().StartsWith(Criterio)).ToList());
+        }
+        public ActionResult exportaExcel()
+        {
+            string filename = "ExcelR.csv";
+            string filepath = @"C:\Users\Monika 2.0\Desktop" + filename;
+            StreamWriter sw = new StreamWriter(filepath);
+            sw.WriteLine("Servicio,Descripcion,Estado"); //Encabezado 
+            foreach (var i in db.Tarifa.ToList())
+            {
+                sw.WriteLine(i.tipo_tarifa.ToString() + "," + i.precio.ToString() );
+            }
+            sw.Close();
+
+
+            byte[] filedata = System.IO.File.ReadAllBytes(filepath);
+            string contentType = MimeMapping.GetMimeMapping(filepath);
+
+            var cd = new System.Net.Mime.ContentDisposition
+            {
+                FileName = filename,
+                Inline = false,
+            };
+
+            Response.AppendHeader("Content-Disposition", cd.ToString());
+
+            return File(filedata, contentType);
         }
 
         // GET: Tarifas/Details/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +66,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Tarifas/Create
+        [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +90,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Tarifas/Edit/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +122,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Tarifas/Delete/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

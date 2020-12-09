@@ -4,22 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dc9f4e0d051a424db6f0445cc5b11c17" Name="Diagram1">
-        <EntityTypeShape EntityType="Cines5Model.Cine" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+      <Diagram DiagramId="dc9f4e0d051a424db6f0445cc5b11c17" Name="Diagram1" ZoomLevel="62">
+        <EntityTypeShape EntityType="Cines5Model.Cine" Width="1.5" PointX="12.375" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Cines5Model.Clasificacion" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Cines5Model.Genero" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Cines5Model.Genero_Pelicula" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Genero_Pelicula" Width="1.5" PointX="5.5" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Cines5Model.Horario" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Cines5Model.Pelicula" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Cines5Model.Pelicula_Protagonista" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Cines5Model.Protagonista" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Cines5Model.Sala" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Cines5Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Cines5Model.Tanda" Width="1.5" PointX="6" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="Cines5Model.Tarifa" Width="1.5" PointX="3.75" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="Cines5Model.sapnu_puas" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Sala" Width="1.5" PointX="10.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.sysdiagrams" Width="1.5" PointX="21" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Tanda" Width="1.5" PointX="8.875" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.Tarifa" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cines5Model.sapnu_puas" Width="1.5" PointX="15.875" PointY="2.625" IsExpanded="true" />
         <AssociationConnector Association="Cines5Model.FK__Cine__id_tarifa__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="Cines5Model.FK__Horario__id_cine__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="Cines5Model.FK__Horario__id_cine__3F466844" ManuallyRouted="true" >
+          <ConnectorPoint PointX="12.375" PointY="8.9913232421875" />
+          <ConnectorPoint PointX="12.015119667375" PointY="8.9913232421875" />
+          <ConnectorPoint PointX="12.015119667375" PointY="7.9444480413710643" />
+          <ConnectorPoint PointX="11.2844535375" PointY="7.9444480413710643" />
+          <ConnectorPoint PointX="11.2844535375" PointY="8.0069480413710643" />
+          <ConnectorPoint PointX="9.07031375" PointY="8.0069480413710643" />
+          <ConnectorPoint PointX="9.07031375" PointY="6.6821907552083326" />
+        </AssociationConnector>
         <AssociationConnector Association="Cines5Model.FK__Sala__id_cine__29572725" ManuallyRouted="false" />
         <AssociationConnector Association="Cines5Model.FK__Pelicula__id_cla__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="Cines5Model.FK__Genero_Pe__id_ge__33D4B598" ManuallyRouted="false" />

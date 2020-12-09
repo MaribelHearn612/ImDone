@@ -4,72 +4,86 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Cine</h2>
+
+<form method="get" style="float:right; position:absolute; left:1088px; top:150px">
+    <input type="text" id="Criterio" name="Criterio" />
+    <input type="submit" id="cmdBuscar" value="Buscar" />
+</form>
+
+<br />
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Exportar Excel", "exportaExcel", "Cines", null, new { @class = "btn btn-danger" })
+
+
+
+    @Html.ActionLink("Crear nuevo", "Create", "Cines", null, new { @class = "btn btn-primary" })
+
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_cine)
+            Nombre Cine
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.provincia_cine)
+            Provincia
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.municipio_cine)
+            Municipio
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.calle_cine)
+            Calle
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.numero_cine)
+            Número
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.localidad_cine)
+            Localidad
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.telefono_cine)
+            Teléfono
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tarifa.tipo_tarifa)
+            Tipo Tarifa
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre_cine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.provincia_cine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.municipio_cine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.calle_cine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.numero_cine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.localidad_cine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono_cine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tarifa.tipo_tarifa)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_cine }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_cine }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_cine })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_cine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.provincia_cine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.municipio_cine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.calle_cine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numero_cine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.localidad_cine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono_cine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarifa.tipo_tarifa)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_cine }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_cine }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_cine })
+            </td>
+        </tr>
+    }
 
 </table>

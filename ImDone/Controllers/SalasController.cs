@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,13 +16,41 @@ namespace ImDone.Controllers
         private Cines5Entities db = new Cines5Entities();
 
         // GET: Salas
-        public ActionResult Index()
+        [Authorize(Roles = "Administrador")]
+        public ActionResult Index(string Criterio = null)
         {
-            var sala = db.Sala.Include(s => s.Cine);
-            return View(sala.ToList());
+            return View(db.Sala.Where(p => Criterio == null || p.nombre_sala.StartsWith(Criterio) ||
+           p.nombre_sala.StartsWith(Criterio)).ToList());
+        }
+        public ActionResult exportaExcel()
+        {
+            string filename = "ExcelR.csv";
+            string filepath = @"C:\Users\Monika 2.0\Desktop" + filename;
+            StreamWriter sw = new StreamWriter(filepath);
+            sw.WriteLine("Servicio,Descripcion,Estado"); //Encabezado 
+            foreach (var i in db.Sala.ToList())
+            {
+                sw.WriteLine(i.id_sala.ToString() + "," + i.nombre_sala.ToString());
+            }
+            sw.Close();
+
+
+            byte[] filedata = System.IO.File.ReadAllBytes(filepath);
+            string contentType = MimeMapping.GetMimeMapping(filepath);
+
+            var cd = new System.Net.Mime.ContentDisposition
+            {
+                FileName = filename,
+                Inline = false,
+            };
+
+            Response.AppendHeader("Content-Disposition", cd.ToString());
+
+            return File(filedata, contentType);
         }
 
         // GET: Salas/Details/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +66,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Salas/Create
+        [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
             ViewBag.id_cine = new SelectList(db.Cine, "id_cine", "nombre_cine");
@@ -62,6 +92,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Salas/Edit/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +126,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Salas/Delete/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -12,15 +12,20 @@ namespace ImDone.Controllers
 {
     public class ProtagonistasController : Controller
     {
+
         private Cines5Entities db = new Cines5Entities();
 
+
+
         // GET: Protagonistas
+        [Authorize(Roles = "Administrador")]
         public ActionResult Index()
         {
             return View(db.Protagonista.ToList());
         }
 
         // GET: Protagonistas/Details/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +41,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Protagonistas/Create
+        [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +65,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Protagonistas/Edit/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +97,7 @@ namespace ImDone.Controllers
         }
 
         // GET: Protagonistas/Delete/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

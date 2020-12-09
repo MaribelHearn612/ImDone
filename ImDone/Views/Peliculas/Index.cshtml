@@ -4,42 +4,56 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Películas</h2>
+
+<form method="get" style="float:right; position:absolute; left:1088px; top:150px">
+    <input type="text" id="Criterio" name="Criterio" />
+    <input type="submit" id="cmdBuscar" value="Buscar" />
+</form>
+
+<br />
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Exportar Excel", "exportaExcel", "Peliculas", null, new { @class = "btn btn-danger" })
+
+
+
+    @Html.ActionLink("Crear nuevo", "Create", "Peliculas", null, new { @class = "btn btn-primary" })
+
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.titulo_pelicula)
+            Título Película
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_director)
+            Nombre Director
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Clasificacion.nombre_clasificacion)
+            Clasificación
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.titulo_pelicula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre_director)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Clasificacion.nombre_clasificacion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_pelicula }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_pelicula }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_pelicula })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titulo_pelicula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clasificacion.nombre_clasificacion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_pelicula }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_pelicula }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_pelicula })
+            </td>
+        </tr>
+    }
 
 </table>

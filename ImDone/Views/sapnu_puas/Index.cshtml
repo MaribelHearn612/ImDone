@@ -4,72 +4,86 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Cartelera</h2>
+
+<form method="get" style="float:right; position:absolute; left:1088px; top:150px">
+    <input type="text" id="Criterio" name="Criterio" />
+    <input type="submit" id="cmdBuscar" value="Buscar" />
+</form>
+
+<br />
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Exportar Excel", "exportaExcel", "sapnu_puas", null, new { @class = "btn btn-danger" })
+
+
+
+   
+
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.localidad_cine)
+            Localidad
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_cine)
+            Nombre Cine
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.titulo_pelicula)
+            Título Película
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_genero)
+            Género
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_protagonista)
+            Protagonista
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tipo_tarifa)
+            Tarifa
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.precio)
+            Precio
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_clasificacion)
+            Clasificación
+        </th>
+        <th>
+            Horario
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.localidad_cine)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.nombre_cine)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.titulo_pelicula)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.nombre_genero)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.nombre_protagonista)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.tipo_tarifa)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.precio)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.nombre_clasificacion)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Periodo, item.nombre_cine, item.nombre_sala }) |
-        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.localidad_cine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_cine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.titulo_pelicula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_genero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_protagonista)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo_tarifa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_clasificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Periodo)
+            </td>
+        </tr>
+    }
 
 </table>

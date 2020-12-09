@@ -4,30 +4,44 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Protagonista</h2>
+
+<form method="get" style="float:right; position:absolute; left:1088px; top:150px">
+    <input type="text" id="Criterio" name="Criterio" />
+    <input type="submit" id="cmdBuscar" value="Buscar" />
+</form>
+
+<br />
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Exportar Excel", "exportaExcel", "Protagonistas", null, new { @class = "btn btn-danger" })
+
+
+
+    @Html.ActionLink("Crear nuevo", "Create", "Protagonistas", null, new { @class = "btn btn-primary" })
+
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_protagonista)
+            Nombre Protagonista
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre_protagonista)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id_protagonista }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id_protagonista }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id_protagonista })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_protagonista)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_protagonista }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_protagonista }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_protagonista })
+            </td>
+        </tr>
+    }
 
 </table>
